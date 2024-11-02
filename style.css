@@ -1,0 +1,264 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Display Controls */
+.hidden {
+    display: none !important;
+}
+
+/* Container Styling */
+.fight-container,
+.betting-container,
+.staff-container {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+
+/* Fighter Stats Styling */
+.fighter-stats {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+.fighter-stats:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Health Bar Styling */
+.health-bar {
+    background: linear-gradient(90deg, #ef4444 0%, #f87171 100%);
+    transition: width 0.3s ease-out;
+}
+
+.stamina-bar {
+    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+    transition: width 0.3s ease-out;
+}
+
+/* Ring Info Styling */
+.ring-info {
+    position: relative;
+    z-index: 10;
+}
+
+.timer {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+/* Fight Status Animation */
+#fightStatus {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Score Display */
+.score {
+    position: relative;
+    padding: 0.5rem;
+}
+
+.score::after {
+    content: 'SCORE';
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+/* Controls Help Styling */
+.controls-help {
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease;
+}
+
+.controls-help:hover {
+    opacity: 0.9;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Hit Effect Animation */
+.hit-effect {
+    animation: hit 0.3s ease-out;
+}
+
+@keyframes hit {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Knockout Effect */
+.knockout {
+    animation: knockout 1s ease-out;
+}
+
+@keyframes knockout {
+    0% {
+        transform: translate(0, 0) rotate(0);
+    }
+    25% {
+        transform: translate(-10px, 0) rotate(-5deg);
+    }
+    75% {
+        transform: translate(10px, 0) rotate(5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+
+/* Round Transition */
+.round-transition {
+    animation: roundTransition 1s ease-out;
+}
+
+@keyframes roundTransition {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Low Health Warning */
+.low-health {
+    animation: lowHealth 1s infinite;
+}
+
+@keyframes lowHealth {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* Low Stamina Warning */
+.low-stamina {
+    animation: lowStamina 1s infinite;
+}
+
+@keyframes lowStamina {
+    0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+/* Betting UI Elements */
+.betting-container {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Staff Management UI */
+.staff-container {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+    .fighter-stats {
+        width: 30%;
+    }
+    
+    .ring-info {
+        width: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .fighter-stats {
+        padding: 1rem;
+    }
+    
+    .fighter-name {
+        font-size: 1.25rem;
+    }
+    
+    .timer {
+        padding: 2rem;
+    }
+}
